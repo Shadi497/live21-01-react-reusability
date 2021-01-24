@@ -1,33 +1,18 @@
-import { AppWrapper } from "../styles";
-import { TagWrapper } from "../styles";
-import { Emoji } from "../styles";
-import { Name } from "../styles";
-import { GoToGithub } from "../styles";
-import data from "../data";
+import { TagWrapper } from "./styles";
+import { Emoji } from "./styles";
+import { Name } from "./styles";
+import { GoToGithub } from "./styles";
 
-const InstructorTag = () => {
+const InstructorTag = (props) => {
   // Create the InstructorTag component here
-
-  const dataList = data.map((instructor) => {
-    return (
-      <TagWrapper
-        key={instructor.id}
-        onClick={() => window.open(instructor.web)}
-      >
-        <Emoji>{instructor.emoji}</Emoji>
-        <Name>{instructor.name}</Name>
-        <GoToGithub>{instructor.GoToGithub}</GoToGithub>
-      </TagWrapper>
-    );
-  });
 
   return (
     <>
-      <AppWrapper>
-        <h2>When in doubt, ask for help!</h2>
-
-        {dataList}
-      </AppWrapper>
+      <TagWrapper key={props.id} onClick={() => window.open(props.web)}>
+        <Emoji>{props.emoji}</Emoji>
+        <Name>{props.name}</Name>
+        <GoToGithub>{props.github}</GoToGithub>
+      </TagWrapper>
     </>
   );
 };
