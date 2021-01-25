@@ -5,15 +5,7 @@ import data from "./data";
 
 const App = () => {
   const dataList = data.map((instructor) => {
-    return (
-      <InstructorTag
-        name={instructor.name}
-        emoji={instructor.emoji}
-        github={instructor.GoToGithub}
-        key={instructor.id}
-        web={instructor.web}
-      />
-    );
+    return <InstructorTag key={instructor.id} {...instructor} />;
   });
   return (
     <>
